@@ -23,25 +23,37 @@ void ex02()
 	bool hasPassedTest;
 	hasPassedTest = 1;
 	int x, y;
+
+// setting the seed for random numbers
 	srand(time(0));
+
+// randomizing x and y
 	x = rand() % 100 + 1;
 	y = rand() % 100 + 1;
 	cout << "x=" << x << ", y=" << y << endl;
+
+	// display true relationship
 	cout << (y > x ? "y>x" : y == x ? "y=x" : "y<x") << endl;
 	int numberOfShares;
 	cout << "How many shares?" << endl;
 	cin >> numberOfShares;
+
+	// display correct inequality
 	cout << "Number of Shares is " << (numberOfShares < 100 ? "" : "not ") << "less than 100." << endl;
 	cout << "What is the width of the box? The book?" << endl;
 	int bookwidth, boxwidth;
 	cin >> boxwidth;
 	cin >> bookwidth;
+
+	// box is evenly divisible by the book if its modulus is 0
 	cout << "The width of the box is " << (boxwidth%bookwidth == 0 ? "" : "not ") << "evenly divisible by the width of the book." << endl;
 	cout << "What is the shelf life of the chocolate?" << endl;
 	int shelflife, temp;
 	cin >> shelflife;
 	cout << "What is the temperature?" << endl;
 	cin >> temp;
+
+	// subtract 4 from the shelf life if its really hot
 	shelflife = (temp > 90 ? shelflife - 4 : shelflife);
 	cout << "The new shelflife of the chocolate is " << shelflife << endl;
 }
