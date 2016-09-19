@@ -1,3 +1,10 @@
+/*
+Carter Nickelson
+CS 172-1
+Dr. Johnson
+19 September 2016
+*/
+
 #include<iostream> 
 #include<cmath> 
 #include<string> 
@@ -67,22 +74,28 @@ void ex03()
 {
 	cout << "What is the area of the square?" << endl;
 	double area;
+	
 	// retrieve the area from the user
 	cin >> area;
+	
 	// The diagonal is the square root of the sum of the squares of the sides. Because one side is the square root of the area, the diagonal is the square root of 2 times the area
 	cout << "The diagonal of this square is " << sqrt(2 * area) << "." << endl;
 	cout << "Yes or no (y or n)?" << endl;
 	char answer;
+	
 	// get an answer from the user
 	cin >> answer;
+	
 	// convert the letter to lowercase in case they entered a capital
 	answer = tolower(answer);
 	cout << "You chose " << (answer == 'y' ? "yes." : "no.") << endl;
 	char tab = 9;
 	string mailingAddress;
+	
 	// get rid of the excess characters left over from previous commands
 	cin.ignore();
 	cout << "Enter your mailing address in one line." << endl;
+	
 	// retrieve address from user ignoring spaces, commas, etc.
 	getline(cin, mailingAddress);
 	string empty = "";
@@ -93,6 +106,7 @@ void ex04()
 	cout << "Enter an integer between 1 and 10." << endl;
 	int number;
 	cin >> number;
+	
 	// as long as the user enters a number outside this range, the while loop will tell them to enter a new value
 	while (number < 1 || number>10)
 	{
@@ -100,6 +114,7 @@ void ex04()
 		cin >> number;
 	}
 	int sum = 0;
+	
 	// use a for loop and the pow command with a temporary sum variable to amass the totals of the cubes up to the user's number from before
 	for (int i = 1; i <= number; i++)
 	{
@@ -107,6 +122,7 @@ void ex04()
 	}
 	cout << "The sum of all of the cubes from 1 to " << number << " is " << sum << "." << endl;
 	int a = 0;
+	
 	// have the program output an asterisk until the a variable (which is incremented each iteration) reaches the value of the user's number
 	do
 	{
@@ -114,21 +130,27 @@ void ex04()
 		a++;
 	} while (a < number);
 	cout <<endl<< "The even numbers from 0 to 40 are:" << endl;
+	
 	// a for loop is used starting at 0 and ending at 40 where the index is increased by 2 each time and then dislpayed.
 	for (int i = 0; i <= 40; i += 2)
 		cout << i << " ";
+	
 	// double the number with the function
 	doubling(number);
 	cout << endl<<"Twice the number you entered above is " << number << "." << endl;
+	
 	// randomize two numbers to be added
 	int one = rand() % 100 + 1;
 	int two = rand() % 100 + 1;
 	cout << "a=" << one << ", b=" << two << "." << endl;
-	// display the total with the return value from the function
+	
+	// display the total with the return value from a function
 	cout << "a+b=" << add(one, two) << endl;
+	
 	// reset the user's number to its original value
 	number /= 2;
-	// increment it with the function
+	
+	// increment it with a function
 	increment(number);
 	cout << "One more than the number you entered earlier is " << number << "." << endl;
 }
@@ -137,16 +159,24 @@ void ex05()
 {
 	cout << "Enter five integers." << endl;
 	int storage[5];
+
+	// use a for loop which ends at the size of the array to input user's numbers into the array one by one
 	for (int i = 0; i <= 4; i++)
 		cin >> storage[i];
 	int total=0,product=1;
+
+	// again using a for loop, go through each value in the array and add that number to the "total" variable and multiply it to the "product" variable
 	for (int i = 0; i <= 4; i++)
 	{
 		total += storage[i];
 		product *= storage[i];
 	}
 	cout << "The sum of these integers is " << total << ". Their product is " << product << "." << endl;
+	
+	// display the values using a function
 	copy(storage, 5);
+
+	// check for a match from a user input using a function
 	match(storage, 5);
 }
 
@@ -168,6 +198,8 @@ void increment(int& value)
 void copy(int storage[], int size)
 {
 	cout << "Your values were: ";
+
+	// extract each value from the array one by one and display it to the screen separated by a space
 	for (int i = 0; i < size; i++)
 		cout << storage[i] << " ";
 	cout << endl;
@@ -176,12 +208,19 @@ void copy(int storage[], int size)
 void match(int storage[], int size)
 {
 	cout << "Enter another integer." << endl;
+
+	// get a number to check for a match
 	int guess;
 	cin >> guess;
+
+	// initialize the check variable to 0
 	int check=0;
 	for (int i = 0; i < size; i++)
 	{
+		// if the number matches that particular value in the array, increment the check variable. If not, do nothing
 		check += (storage[i] == guess ? 1 : 0);
 	}
+
+	// if the check variable is still 0 then there were no matches. Otherwise, there must have been at least one match in the array.
 	cout << (check == 0 ? "Your array does not contain this value." : "Your array contains this value.") << endl;
 }
