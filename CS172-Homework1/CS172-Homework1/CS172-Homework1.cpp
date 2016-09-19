@@ -63,16 +63,20 @@ void ex03()
 	cout << "What is the area of the square?" << endl;
 	double area;
 	cin >> area;
+	// The diagonal is the square root of the sum of the squares of the sides. Because one side is the square root of the area, the diagonal is the square root of 2 times the area
 	cout << "The diagonal of this square is " << sqrt(2 * area) << "." << endl;
 	cout << "Yes or no (y or n)?" << endl;
 	char answer;
 	cin >> answer;
+	// convert the letter to lowercase in case they entered a capital
 	answer = tolower(answer);
 	cout << "You chose " << (answer == 'y' ? "yes." : "no.") << endl;
 	char tab = 9;
 	string mailingAddress;
+	// get rid of the excess characters left over from previous commands
 	cin.ignore();
 	cout << "Enter your mailing address in one line." << endl;
+	// retrieve address from user ignoring spaces, commas, etc.
 	getline(cin, mailingAddress);
 	string empty = "";
 }
