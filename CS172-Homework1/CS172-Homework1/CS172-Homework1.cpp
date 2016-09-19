@@ -60,7 +60,21 @@ void ex02()
 
 void ex03()
 {
-
+	cout << "What is the area of the square?" << endl;
+	double area;
+	cin >> area;
+	cout << "The diagonal of this square is " << sqrt(2 * area) << "." << endl;
+	cout << "Yes or no (y or n)?" << endl;
+	char answer;
+	cin >> answer;
+	answer = tolower(answer);
+	cout << "You chose " << (answer == 'y' ? "yes." : "no.") << endl;
+	char tab = 9;
+	string mailingAddress;
+	cin.ignore();
+	cout << "Enter your mailing address in one line." << endl;
+	getline(cin, mailingAddress);
+	string empty = "";
 }
 
 void ex04()
