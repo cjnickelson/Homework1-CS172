@@ -9,6 +9,9 @@ void ex02();
 void ex03();
 void ex04();
 void ex05();
+void doubling(int&);
+int add(int, int);
+void increment(int&);
 
 int main()
 {
@@ -83,10 +86,56 @@ void ex03()
 
 void ex04()
 {
-
+	cout << "Enter an integer between 1 and 10." << endl;
+	int number;
+	cin >> number;
+	while (number < 1 || number>10)
+	{
+		cout << "Invalid input. Please try again." << endl;
+		cin >> number;
+	}
+	int sum = 0;
+	for (int i = 1; i <= number; i++)
+	{
+		sum+=pow(i, 3);
+	}
+	cout << "The sum of all of the cubes from 1 to " << number << " is " << sum << "." << endl;
+	int a = 0;
+	do
+	{
+		cout << "* ";
+		a++;
+	} while (a < number);
+	cout <<endl<< "The even numbers from 0 to 40 are:" << endl;
+	for (int i = 0; i <= 40; i += 2)
+		cout << i << " ";
+	doubling(number);
+	cout << endl<<"Twice the number you entered above is " << number << "." << endl;
+	int one = rand() % 100 + 1;
+	int two = rand() % 100 + 1;
+	cout << "a=" << one << ", b=" << two << "." << endl;
+	cout << "a+b=" << add(one, two) << endl;
+	number /= 2;
+	increment(number);
+	cout << "One more than the number you entered earlier is " << number << "." << endl;
 }
 
 void ex05()
 {
 
+}
+
+void doubling(int& value)
+{
+	value*=2;
+}
+
+int add(int a, int b)
+{
+	return a + b;
+}
+
+void increment(int& value)
+{
+	value++;
 }
