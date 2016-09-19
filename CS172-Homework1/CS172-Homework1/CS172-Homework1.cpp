@@ -12,6 +12,8 @@ void ex05();
 void doubling(int&);
 int add(int, int);
 void increment(int&);
+void copy(int[], int);
+void match(int[], int);
 
 int main()
 {
@@ -133,7 +135,19 @@ void ex04()
 
 void ex05()
 {
-
+	cout << "Enter five integers." << endl;
+	int storage[5];
+	for (int i = 0; i <= 4; i++)
+		cin >> storage[i];
+	int total=0,product=1;
+	for (int i = 0; i <= 4; i++)
+	{
+		total += storage[i];
+		product *= storage[i];
+	}
+	cout << "The sum of these integers is " << total << ". Their product is " << product << "." << endl;
+	copy(storage, 5);
+	match(storage, 5);
 }
 
 void doubling(int& value)
@@ -149,4 +163,25 @@ int add(int a, int b)
 void increment(int& value)
 {
 	value++;
+}
+
+void copy(int storage[], int size)
+{
+	cout << "Your values were: ";
+	for (int i = 0; i < size; i++)
+		cout << storage[i] << " ";
+	cout << endl;
+}
+
+void match(int storage[], int size)
+{
+	cout << "Enter another integer." << endl;
+	int guess;
+	cin >> guess;
+	int check=0;
+	for (int i = 0; i < size; i++)
+	{
+		check += (storage[i] == guess ? 1 : 0);
+	}
+	cout << (check == 0 ? "Your array does not contain this value." : "Your array contains this value.") << endl;
 }
